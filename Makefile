@@ -9,25 +9,25 @@ all: build
 build: ant
 	
 ant:
-	@cmake -S./ant . -B./ant/build
-	@cmake --build ant/build
+	@cmake -S . -B build
+	@cmake --build build
 
 run_ant: ant
-	@./ant/build/Ant
+	@./build/Ant
 
 rebuild: clean build
 
 dvi:
-	doxygen ./ant/docs/Doxyfile
-	open ./ant/docs/html/index.html
+	doxygen ./docs/Doxyfile
+	open ./docs/html/index.html
 
 check: style cppcheck
 
 style: 
-	clang-format -style=google -n -verbose */*.cc */*.h
+	clang-format -style=google -n -verbose *.cc *.h
 
 cppcheck:
 	@cppcheck $(CPPCHECKFLAG) */*.cc */*/*.cc *.cc  */*.h */*/*.h *.h
 
 clean:
-	@rm -rf *.o *.out ./ant/docs/html ./ant/build
+	@rm -rf *.o *.out ./docs/html ./build

@@ -45,7 +45,7 @@ class Console {
 
  private:
   Graph graph_;
-  std::string filename_{"./ant/resources/graph_undirected.txt"};
+  std::string filename_{"./resources/graph_undirected.txt"};
   const static std::string menu_;
   int executions_{1};
 };
