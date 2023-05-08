@@ -6,8 +6,8 @@
 #include <iostream>
 #include <string>
 
-#include "ant_algorithm.h"
-#include "graph.h"
+#include "../model/ant_algorithm.h"
+#include "../model/graph.h"
 
 enum class Color { kRed, kGreen, kBlue, kYellow, kGrey, kCyan, kMagenta, kEnd };
 

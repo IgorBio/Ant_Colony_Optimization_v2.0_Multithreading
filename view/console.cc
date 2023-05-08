@@ -124,9 +124,16 @@ bool Console::ChooseMenuItem() {
     case 3:
       system("clear");
       try {
-        std::pair<TsmResult, Time> tsm = ThirdItem();
-        std::cout << GetColor(Color::kMagenta) << RouteToString(tsm)
-                  << GetColor(Color::kEnd) << "\n\n";
+        if (executions_ < 1) {
+          std::cout << GetColor(Color::kMagenta)
+                    << Align("WHAT YOU EXPECTED HERE?") << GetColor(Color::kEnd)
+                    << " 😉"
+                    << "\n\n";
+        } else {
+          std::pair<TsmResult, Time> tsm = ThirdItem();
+          std::cout << GetColor(Color::kMagenta) << RouteToString(tsm)
+                    << GetColor(Color::kEnd) << "\n\n";
+        }
       } catch (const std::logic_error &e) {
         std::cout << GetColor(Color::kRed) << Align(e.what())
                   << GetColor(Color::kEnd) << " 🚨"
@@ -136,9 +143,16 @@ bool Console::ChooseMenuItem() {
     case 4:
       system("clear");
       try {
-        std::pair<TsmResult, Time> tsm = FourthItem();
-        std::cout << GetColor(Color::kMagenta) << RouteToString(tsm)
-                  << GetColor(Color::kEnd) << "\n\n";
+        if (executions_ < 1) {
+          std::cout << GetColor(Color::kMagenta)
+                    << Align("WHAT YOU EXPECTED HERE?") << GetColor(Color::kEnd)
+                    << " 😉"
+                    << "\n\n";
+        } else {
+          std::pair<TsmResult, Time> tsm = FourthItem();
+          std::cout << GetColor(Color::kMagenta) << RouteToString(tsm)
+                    << GetColor(Color::kEnd) << "\n\n";
+        }
       } catch (const std::logic_error &e) {
         std::cout << GetColor(Color::kRed) << Align(e.what())
                   << GetColor(Color::kEnd) << " 🚨"

@@ -18,13 +18,13 @@ run_ant: ant
 rebuild: clean build
 
 dvi:
-	doxygen ./docs/Doxyfile
-	open ./docs/html/index.html
+	@doxygen ./docs/Doxyfile
+	@open ./docs/html/index.html
 
 check: style cppcheck
 
 style: 
-	clang-format -style=google -n -verbose *.cc *.h
+	@clang-format -style=google -n -verbose */*.cc */*.h
 
 cppcheck:
 	@cppcheck $(CPPCHECKFLAG) */*.cc */*/*.cc *.cc  */*.h */*/*.h *.h
