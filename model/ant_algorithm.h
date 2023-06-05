@@ -1,5 +1,5 @@
-#ifndef SRC_ANT_ANT_ALGORITHM_H
-#define SRC_ANT_ANT_ALGORITHM_H
+#ifndef PARALLELS_ANT_MODEL_ANT_ALGORITHM_H_
+#define PARALLELS_ANT_MODEL_ANT_ALGORITHM_H_
 
 #include <algorithm>
 #include <memory>
@@ -30,7 +30,7 @@ class Ant {
   void MakeBypass(const Pheromones &);
   double GetDistance() const;
   Path GetPath() const;
-  bool IsVisited(size_t, size_t);
+  bool IsVisited(size_t, size_t) const;
 
  private:
   int ChooseNextPath(const Pheromones &, size_t);
@@ -58,7 +58,7 @@ class AntAlgorithm {
 
   void RunAlgorithm();
   TsmResult GetResult() const;
-  void SetParallel(const bool parallel);
+  void SetParallel(const bool);
 
  private:
   void RunColony();
@@ -67,7 +67,7 @@ class AntAlgorithm {
   void UpdatePheromones();
   void UpdateResult();
   bool CheckResult() const;
-  void ParallelBypass(size_t vertex);
+  void ParallelBypass(size_t);
 
  private:
   const Graph &graph_;
@@ -76,7 +76,7 @@ class AntAlgorithm {
   Pheromones pheromones_;
   Heuristics consts_;
   std::mutex mtx_;
-  bool parallel_ = false;
+  bool parallel_;
 };
 
-#endif  // SRC_ANT_ANT_ALGORITHM_H
+#endif  // PARALLELS_ANT_MODEL_ANT_ALGORITHM_H_
